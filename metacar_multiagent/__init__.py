@@ -1,0 +1,80 @@
+"""MetaCar 多车协同扩展接口。"""
+
+__version__ = "0.1.0"
+
+from metacar import (
+    BorderInfo,
+    DrivingType,
+    GearMode,
+    LaneInfo,
+    LineType,
+    ObstacleInfo,
+    ObstacleType,
+    PoseGnss,
+    RoadInfo,
+    TrafficSignType,
+    Vector2,
+    Vector3,
+    VehicleControl,
+)
+
+from .api import (
+    ScenarioAPIError,
+    ScenarioCommandError,
+    ScenarioConnectionError,
+    ScenarioProtocolError,
+    ScenarioTaskAPI,
+)
+from .build_info import SDK_BUILD_ID, SDK_CONTRACT
+from .models import (
+    MultiVehicleSceneStaticData,
+    ScenarioEvent,
+    ScenarioInteractionResult,
+    ScenarioObservation,
+    ScenarioObservedTaskObject,
+    ScenarioSharedTaskObject,
+    ScenarioTaskDefinition,
+    ScenarioTaskObjective,
+    ScenarioTaskState,
+    ScenarioUncertaintyRegion,
+    ScenarioVehicleInfo,
+    ScenarioVehicleState,
+    StaticObjectInfo,
+)
+
+__all__ = [
+    "__version__",
+    "SDK_BUILD_ID",
+    "SDK_CONTRACT",
+    "ScenarioTaskAPI",
+    "ScenarioAPIError",
+    "ScenarioConnectionError",
+    "ScenarioProtocolError",
+    "ScenarioCommandError",
+    "MultiVehicleSceneStaticData",
+    "ScenarioVehicleInfo",
+    "StaticObjectInfo",
+    "ScenarioTaskDefinition",
+    "ScenarioTaskObjective",
+    "ScenarioSharedTaskObject",
+    "ScenarioUncertaintyRegion",
+    "ScenarioTaskState",
+    "ScenarioVehicleState",
+    "ScenarioObservation",
+    "ScenarioObservedTaskObject",
+    "ScenarioInteractionResult",
+    "ScenarioEvent",
+    "VehicleControl",
+    "GearMode",
+    "PoseGnss",
+    "RoadInfo",
+    "LaneInfo",
+    "BorderInfo",
+    "LineType",
+    "DrivingType",
+    "TrafficSignType",
+    "ObstacleInfo",
+    "ObstacleType",
+    "Vector2",
+    "Vector3",
+]

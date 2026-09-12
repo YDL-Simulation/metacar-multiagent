@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "metacar-multiagent"
+version = "0.1.0"
+authors = [
+  { name = "YDL-Simulation", email = "connie.ma@i-mylab.com" },
+]
+description = "MetaCar 多车协同场景 Python 扩展接口"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "metacar==0.4.0",
+  "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2",
+  "pytest>=8.0",
+  "sphinx>=8.0",
+  "twine>=5.0",
+]
+
+[project.urls]
+Repository = "https://github.com/YDL-Simulation/metacar-multiagent"
+Issues = "https://github.com/YDL-Simulation/metacar-multiagent/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["metacar_multiagent"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/metacar_multiagent",
+  "/tests",
+  "/docs",
+  "/examples",
+  "/scripts",
+  "/CHANGELOG.md",
+  "/README.md",
+  "/LICENSE",
+  "/RELEASING.md",
+  "/pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

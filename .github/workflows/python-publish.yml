@@ -1,0 +1,60 @@
+name: Publish SDK
+on:
+  release:
+    types: [published]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e ".[dev]"
+      - name: Validate tag and public boundary
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: python scripts/check_public_release.py --tag "$RELEASE_TAG"
+      - run: python -m unittest discover -s tests -p "test_*.py"
+  build:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[dev]"
+      - run: python scripts/prepare_release_candidate.py --output Artifacts/release-candidate
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-dists
+          path: Artifacts/release-candidate/dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-audit
+          path: Artifacts/release-candidate/audit.json
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-dists
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/
