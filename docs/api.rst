@@ -21,17 +21,13 @@
 数据模型
 --------
 
-.. autoclass:: metacar_multiagent.MultiVehicleSceneStaticData
-   :members:
+.. autopydantic_model:: metacar_multiagent.MultiVehicleSceneStaticData
 
-.. autoclass:: metacar_multiagent.ScenarioVehicleInfo
-   :members:
+.. autopydantic_model:: metacar_multiagent.ScenarioVehicleInfo
 
-.. autoclass:: metacar_multiagent.StaticObjectInfo
-   :members:
+.. autopydantic_model:: metacar_multiagent.StaticObjectInfo
 
-.. autoclass:: metacar_multiagent.ScenarioVehicleState
-   :members:
+.. autopydantic_model:: metacar_multiagent.ScenarioVehicleState
 
 车辆状态说明
 ^^^^^^^^^^^^
@@ -42,20 +38,15 @@
 
 ``ScenarioVehicleState.speed_mps`` 是车辆当前纵向速度，前进为正、倒车为负，单位为米每秒。``ScenarioVehicleState.control`` 是车辆当前实际生效的控制值。
 
-.. autoclass:: metacar_multiagent.ScenarioTaskDefinition
-   :members:
+.. autopydantic_model:: metacar_multiagent.ScenarioTaskDefinition
 
-.. autoclass:: metacar_multiagent.ScenarioTaskState
-   :members:
+.. autopydantic_model:: metacar_multiagent.ScenarioTaskState
 
-.. autoclass:: metacar_multiagent.ScenarioObservation
-   :members:
+.. autopydantic_model:: metacar_multiagent.ScenarioObservation
 
-.. autoclass:: metacar_multiagent.ScenarioInteractionResult
-   :members:
+.. autopydantic_model:: metacar_multiagent.ScenarioInteractionResult
 
-.. autoclass:: metacar_multiagent.ScenarioEvent
-   :members:
+.. autopydantic_model:: metacar_multiagent.ScenarioEvent
 
 异常
 ----
