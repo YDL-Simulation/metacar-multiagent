@@ -13,4 +13,4 @@ extensions = ["sphinx.ext.autodoc"]
 templates_path = []
 exclude_patterns = ["_build"]
 language = "zh_CN"
-html_theme = "alabaster"
+html_theme = "sphinx_rtd_theme"
