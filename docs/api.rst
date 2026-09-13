@@ -40,9 +40,25 @@
 
 .. autopydantic_model:: metacar_multiagent.ScenarioTaskDefinition
 
+任务目标
+
+.. autopydantic_model:: metacar_multiagent.ScenarioTaskObjective
+
+共享任务对象
+
+.. autopydantic_model:: metacar_multiagent.ScenarioSharedTaskObject
+
+位置不确定区域
+
+.. autopydantic_model:: metacar_multiagent.ScenarioUncertaintyRegion
+
 .. autopydantic_model:: metacar_multiagent.ScenarioTaskState
 
 .. autopydantic_model:: metacar_multiagent.ScenarioObservation
+
+当前车辆观测对象
+
+.. autopydantic_model:: metacar_multiagent.ScenarioObservedTaskObject
 
 .. autopydantic_model:: metacar_multiagent.ScenarioInteractionResult
 
